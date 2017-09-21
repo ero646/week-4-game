@@ -11,24 +11,24 @@ var losses=0;
 
 var crystal = {
 	red : {
-		strength :0,
-		pathtoimg : "assets/images/mind_gem.jpg",
+		value :0,
+		path : "assets/images/mind_gem.jpg",
 
 	},
 
 	blue : {
-		strength : 0,
-		pathtoimg : "assets/images/time_gem.jpg",
+		value : 0,
+		path : "assets/images/time_gem.jpg",
 	},
 	
 	yellow : {
-		strength : 0,
-		pathtoimg : "assets/images/power_gem.jpg",
+		value : 0,
+		path : "assets/images/power_gem.jpg",
 	},
 
 	green : {
-		strength : 0,
-		pathtoimg : "assets/images/space_gem.jpg",
+		value : 0,
+		path : "assets/images/space_gem.jpg",
 	},
 
 };
@@ -38,40 +38,40 @@ var crystal = {
 $(document).ready(function(){
 
 	
-	$('#red').append('<img src=' + crystal.red.pathtoimg + '>');
+	$('#red').append('<img src=' + crystal.red.path + '>');
 	$('#red').click(function(){
 		if (endOfGame == false){
-		playerScore=playerScore + crystal.red.strength;
+		playerScore=playerScore + crystal.red.value;
 		checkScore();
 		$('#playerScore').html(playerScore);
 		};
 	})
 
 
-	$('#blue').append('<img src=' + crystal.blue.pathtoimg + '>');
+	$('#blue').append('<img src=' + crystal.blue.path + '>');
 	$('#blue').click(function(){
 		if (endOfGame == false){
-		playerScore=playerScore + crystal.blue.strength;
+		playerScore=playerScore + crystal.blue.value;
 		checkScore();
 		$('#playerScore').html(playerScore);
 		};
 	})
 
 
-	$('#yellow').append('<img src=' + crystal.yellow.pathtoimg + '>');  
+	$('#yellow').append('<img src=' + crystal.yellow.path + '>');  
 	$('#yellow').click(function(){
 		if (endOfGame == false){
-		playerScore=playerScore + crystal.yellow.strength;
+		playerScore=playerScore + crystal.yellow.value;
 		checkScore();
 		$('#playerScore').html(playerScore);
 		};
 	})
 
 
-	$('#green').append('<img src=' + crystal.green.pathtoimg + '>');
+	$('#green').append('<img src=' + crystal.green.path + '>');
 	$('#green').click(function(){
 		if (endOfGame == false){
-		playerScore=playerScore + crystal.green.strength;
+		playerScore=playerScore + crystal.green.value;
 		checkScore();
 		$('#playerScore').html(playerScore);
 		};
@@ -83,18 +83,18 @@ $(document).ready(function(){
 				if (playerScore == randomnum){
 						endOfGame = true;
 						wins++;
-						$('#announce').text("You Win!!");
+						alert ("You Won!");
 						}else if (playerScore > randomnum){
 							Playerloses = true;
 							endOfGame = true;
 							losses++;
-							$('#announce').text("You Lose!");
+							alert("You Lost!");
 						};
 						
 						if (endOfGame){
 						$('#wins').html("Wins: " + wins);
 						$('#losses').html("Losses: "+losses);
-						setTimeout(startgame,2500);
+						setTimeout(startgame,100);
 						}
 	}
 
@@ -104,10 +104,10 @@ $(document).ready(function(){
 			playerScore = 0
 			randomnum = Math.round(Math.random() * (120 - 19)) + 19;
 			
-			crystal.red.strength = Math.round(Math.random() * (12-1)) + 1;
-			crystal.blue.strength = Math.round(Math.random() * (12-1)) + 1;
-			crystal.yellow.strength = Math.round(Math.random() * (12-1)) + 1;
-			crystal.green.strength = Math.round(Math.random() * (12-1)) + 1;
+			crystal.red.value = Math.round(Math.random() * (12-1)) + 1;
+			crystal.blue.value = Math.round(Math.random() * (12-1)) + 1;
+			crystal.yellow.value = Math.round(Math.random() * (12-1)) + 1;
+			crystal.green.value = Math.round(Math.random() * (12-1)) + 1;
 			
 			$('#playerScore').html(playerScore);
 			$('#randnum').html(randomnum);
@@ -119,4 +119,4 @@ $(document).ready(function(){
 
 startgame();
 
-});//closes the $JQuery
+});
